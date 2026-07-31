@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMA · Etiquetas Santa Clara 500g</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@1,500&family=Tangerine:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --lw: 11cm;
+      --lh: 17.5cm;
+
+      --gold-hi:   #F7DC6F;
+      --gold-mid:  #D4A830;
+      --gold-lo:   #A07820;
+      --green-logo:#1B3D2A;
+      --cream-bg:  #F0E6C0;
+      --cream-text:#F5ECC8;
+      --dark-bg:   #0A0600;
+      --brown-txt: #2C1608;
+      --brown-mid: #5C3010;
+    }
+
+    /* ===== FORZAR COLORES EN IMPRESIÓN ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #3a3a3a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.5rem 1rem 3rem;
+    }
+
+    /* ===== SCREEN TITLE ===== */
+    .screen-title {
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .7;
+    }
+    .preview-row {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .label-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .6rem;
+    }
+    .label-cap {
+      color: var(--gold-mid);
+      font-family: 'Cinzel', serif;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    /* ===== LABEL BASE ===== */
+    .label {
+      width: var(--lw);
+      height: var(--lh);
+      display: flex;
+      flex-direction: column;
+      border-radius: .3cm;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* --- Dark version (en grano) --- */
+    .label--dark  {
+      background: var(--dark-bg);
+      -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+      box-shadow: 0 0 0 1px #D4A830, 0 20px 60px rgba(0,0,0,.8);
+    }
+
+    /* --- Light version (molido) --- */
+    .label--light {
+      background: var(--cream-bg);
+      -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+      box-shadow: 0 0 0 1px #A07820, 0 20px 60px rgba(0,0,0,.5);
+    }
+
+    /* ===== OUTER BORDER DECORATION ===== */
+    .label__outer-border {
+      position: absolute;
+      inset: .2cm;
+      border: 1px solid rgba(212,168,48,.35);
+      border-radius: .18cm;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    /* ===== ILLUSTRATION GRID ===== */
+    .label__art {
+      flex-shrink: 0;
+      height: 6.8cm;
+      position: relative;
+    }
+
+    .panels {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .panel { overflow: hidden; }
+    .panel svg { width: 100%; height: 100%; display: block; }
+
+    /* Gold grid cross lines */
+    .grid-cross {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .grid-cross::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212,168,48,.1), rgba(212,168,48,.7) 30%, rgba(212,168,48,.9) 50%, rgba(212,168,48,.7) 70%, rgba(212,168,48,.1));
+    }
+    .grid-cross::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(212,168,48,.1), rgba(212,168,48,.7) 30%, rgba(212,168,48,.9) 50%, rgba(212,168,48,.7) 70%, rgba(212,168,48,.1));
+    }
+
+    /* ===== LUMA LOGO ===== */
+    .label__logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 30;
+      width: 3.6cm;
+      height: 2.9cm;
+      background: var(--green-logo);
+      border-radius: .18cm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(212,168,48,.4), 0 0 40px rgba(212,168,48,.2), inset 0 1px 0 rgba(212,168,48,.15);
+    }
+
+    .logo-line {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 900;
+      font-size: 1.42cm;
+      line-height: .9;
+      background: linear-gradient(180deg, var(--gold-hi) 0%, var(--gold-mid) 45%, var(--gold-lo) 75%, var(--gold-mid) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: .06em;
+      display: block;
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: .45cm;
+      color: var(--gold-hi);
+      line-height: 1;
+      text-shadow: 0 0 8px rgba(247,220,111,.8);
+    }
+    .sp-tl { top: -.28cm; left: -.28cm; }
+    .sp-tr { top: -.28cm; right: -.28cm; }
+    .sp-bl { bottom: -.28cm; left: -.28cm; }
+    .sp-br { bottom: -.28cm; right: -.28cm; }
+
+    /* Glow dots at grid intersection corners */
+    .grid-glow {
+      position: absolute;
+      z-index: 12;
+      width: .35cm;
+      height: .35cm;
+      border-radius: 50%;
+      background: var(--gold-mid);
+      box-shadow: 0 0 6px 2px rgba(212,168,48,.6);
+    }
+    .grid-glow.tl { top: calc(50% - .175cm); left: calc(50% - 1.975cm); }
+    .grid-glow.tr { top: calc(50% - .175cm); right: calc(50% - 1.975cm); }
+    .grid-glow.bl { bottom: calc(50% - .175cm); left: calc(50% - 1.975cm); }
+    .grid-glow.br { bottom: calc(50% - .175cm); right: calc(50% - 1.975cm); }
+
+    /* ===== BODY SECTION ===== */
+    .label__body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: .28cm .55cm .3cm;
+    }
+
+    /* CAFÉ ESPECIAL */
+    .label__main-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: .92cm;
+      text-align: center;
+      line-height: 1;
+      letter-spacing: .1em;
+      background: linear-gradient(180deg, var(--gold-hi) 0%, var(--gold-mid) 40%, var(--gold-lo) 70%, var(--gold-mid) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .1cm;
+    }
+
+    /* —— ORIGEN TOLIMA —— */
+    .label__origen-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .15cm;
+      margin-bottom: .05cm;
+    }
+    .orig-rule {
+      flex: 1;
+      max-width: 1cm;
+      height: 1px;
+      background: var(--gold-mid);
+    }
+    /* El ornamento del diseño original: pequeño símbolo con líneas */
+    .orig-deco {
+      display: flex;
+      align-items: center;
+      gap: .06cm;
+      color: var(--gold-mid);
+    }
+    .orig-deco span { display: block; }
+    .orig-deco .bean { font-size: .26cm; }
+    .orig-deco .rule { width: .25cm; height: 1px; background: var(--gold-mid); }
+    .orig-text {
+      font-family: 'Cinzel', serif;
+      font-size: .28cm;
+      font-weight: 600;
+      letter-spacing: .22em;
+      color: var(--gold-mid);
+      text-transform: uppercase;
+    }
+
+    /* Tagline */
+    .label__tagline {
+      font-family: 'Tangerine', cursive;
+      font-weight: 700;
+      font-size: .72cm;
+      text-align: center;
+      line-height: 1.05;
+      margin-bottom: .18cm;
+    }
+    .label--dark  .label__tagline { color: var(--gold-mid); }
+    .label--light .label__tagline { color: var(--brown-mid); }
+
+    /* ===== INFO CARD ===== */
+    .info-card {
+      border: 1px solid rgba(212,168,48,.3);
+      border-radius: .2cm;
+      padding: .2cm .25cm;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr .88fr;
+      gap: 0;
+      margin-bottom: .18cm;
+    }
+    .label--dark  .info-card { background: rgba(245,236,200,.05); }
+    .label--light .info-card { background: rgba(255,255,255,.45); }
+
+    .icol { padding: 0 .18cm; display: flex; flex-direction: column; gap: .06cm; }
+    .icol:first-child { padding-left: 0; }
+    .icol:last-child  { padding-right: 0; }
+    .icol + .icol { border-left: 1px solid rgba(212,168,48,.25); }
+
+    .ic-label {
+      font-size: .24cm;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .label--dark  .ic-label { color: var(--gold-mid); }
+    .label--light .ic-label { color: #7B4F20; }
+
+    .ic-value {
+      font-family: 'Cinzel', serif;
+      font-size: .37cm;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .label--dark  .ic-value { color: var(--cream-text); }
+    .label--light .ic-value { color: var(--brown-txt); }
+
+    .ic-sub {
+      font-size: .24cm;
+      line-height: 1.4;
+    }
+    .label--dark  .ic-sub { color: rgba(245,236,200,.65); }
+    .label--light .ic-sub { color: var(--brown-mid); }
+
+    .ic-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: .08cm;
+      font-size: .24cm;
+      line-height: 1.45;
+    }
+    .label--dark  .ic-feat { color: rgba(245,236,200,.75); }
+    .label--light .ic-feat { color: var(--brown-mid); }
+
+    .ic-icon { flex-shrink: 0; margin-top: .02cm; font-size: .27cm; }
+
+    .ic-star { color: var(--gold-mid); margin-right: .05cm; }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,48,.45), transparent);
+      margin-bottom: .15cm;
+    }
+
+    /* ===== FOOTER ===== */
+    .label__footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: .15cm;
+      flex-shrink: 0;
+    }
+
+    .foot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .06cm;
+    }
+
+    .foot-ico { font-size: .38cm; }
+    .label--dark  .foot-ico { filter: brightness(1.1); }
+
+    .foot-lbl {
+      font-size: .24cm;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .label--dark  .foot-lbl { color: var(--gold-mid); }
+    .label--light .foot-lbl { color: #7B4F20; }
+
+    .dots {
+      display: flex;
+      gap: .06cm;
+      align-items: center;
+    }
+    .dot {
+      width: .25cm;
+      height: .25cm;
+      border-radius: 50%;
+    }
+    .dot-on  { background: var(--gold-mid); }
+    .dot-off { border: 1px solid var(--gold-mid); }
+    .label--light .dot-off { border-color: #7B4F20; }
+
+    .foot-sub { font-size: .22cm; }
+    .label--dark  .foot-sub { color: rgba(245,236,200,.55); }
+    .label--light .foot-sub { color: #7B4F20; }
+
+    /* Badge */
+    .foot-badge {
+      width: 1.9cm;
+      height: 1.9cm;
+      border-radius: 50%;
+      background: var(--green-logo);
+      border: 1px solid rgba(212,168,48,.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(27,61,42,.6);
+    }
+    .badge-ico { font-size: .45cm; margin-bottom: .04cm; }
+    .badge-txt {
+      font-family: 'Cinzel', serif;
+      font-size: .19cm;
+      font-weight: 700;
+      color: var(--gold-mid);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    /* Weight */
+    .label__weight {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      gap: .05cm;
+      margin-top: .1cm;
+    }
+    .wt-num {
+      font-family: 'Cinzel', serif;
+      font-size: .55cm;
+      font-weight: 700;
+      background: linear-gradient(180deg, var(--gold-hi) 0%, var(--gold-mid) 60%, var(--gold-lo) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .wt-unit-wrap { display: flex; flex-direction: column; align-items: flex-end; }
+    .wt-unit { font-size: .24cm; font-weight: 600; line-height: 1; }
+    .wt-net  { font-size: .19cm; letter-spacing: .08em; text-transform: uppercase; }
+    .label--dark  .wt-unit,
+    .label--dark  .wt-net   { color: rgba(212,168,48,.75); }
+    .label--light .wt-unit,
+    .label--light .wt-net   { color: #7B4F20; }
+
+    /* ===== PRINT CONTROLS ===== */
+    .controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .ctrl-btn {
+      padding: .65rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cinzel', serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .ctrl-btn:hover { opacity: .85; }
+    .ctrl-btn--dark  { background: var(--green-logo); color: var(--gold-mid); }
+    .ctrl-btn--light { background: var(--cream-bg); color: var(--brown-txt); border: 1px solid var(--gold-mid); }
+    .ctrl-btn--both  { background: var(--gold-mid); color: var(--dark-bg); }
+
+    /* ===== PRINT RULES ===== */
+    @media print {
+      /* Forzar colores de fondo en TODOS los navegadores */
+      * {
+        -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+      }
+
+      body { background: none; padding: 0; gap: 0; }
+      .screen-title, .controls, .label-cap { display: none; }
+      .preview-row { flex-direction: column; gap: 0; align-items: flex-start; }
+      .label-wrap { gap: 0; }
+
+      .label {
+        border-radius: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+        width: var(--lw);
+        height: var(--lh);
+        /* Garantizar que el fondo se imprima */
+        -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+      }
+
+      .label--dark  { background-color: #0A0600 !important; }
+      .label--light { background-color: #F0E6C0 !important; }
+
+      /* Asegurar que el logo verde y otros fondos se impriman */
+      .label__logo  { background-color: #1B3D2A !important; }
+      .foot-badge   { background-color: #1B3D2A !important; }
+      .info-card    { border: 1px solid rgba(212,168,48,.5) !important; }
+
+      @page { size: 11cm 17.5cm; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <p class="screen-title">LUMA · Etiquetas Santa Clara · 500 g</p>
+
+  <div class="preview-row">
+
+    <!-- ════════════════════════════════════════
+         LABEL 1 · CAFÉ EN GRANO · FONDO OSCURO
+    ════════════════════════════════════════ -->
+    <div class="label-wrap">
+      <span class="label-cap">Café en Grano — Versión oscura</span>
+      <div class="label label--dark" id="label-grano">
+        <div class="label__outer-border"></div>
+
+        <!-- ── ILLUSTRATION GRID ── -->
+        <div class="label__art">
+          <div class="panels">
+
+            <!-- TOP-LEFT: Montañas -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Starburst rays -->
+                <g opacity=".85">
+                  <line x1="110" y1="68" x2="110" y2="18"  stroke="#F7DC6F" stroke-width="1.4"/>
+                  <line x1="110" y1="68" x2="136" y2="26"  stroke="#F7DC6F" stroke-width="1.1"/>
+                  <line x1="110" y1="68" x2="155" y2="45"  stroke="#F7DC6F" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="162" y2="68"  stroke="#F7DC6F" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="84"  y2="26"  stroke="#F7DC6F" stroke-width="1.1"/>
+                  <line x1="110" y1="68" x2="65"  y2="45"  stroke="#F7DC6F" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="58"  y2="68"  stroke="#F7DC6F" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="72"  y2="18"  stroke="#F7DC6F" stroke-width=".8"/>
+                  <line x1="110" y1="68" x2="148" y2="18"  stroke="#F7DC6F" stroke-width=".8"/>
+                </g>
+                <!-- Sun glow -->
+                <circle cx="110" cy="68" r="12" fill="rgba(247,220,111,.18)"/>
+                <circle cx="110" cy="68" r="5"  fill="#F7DC6F"/>
+
+                <!-- Mountain silhouette -->
+                <path d="M8 190 L45 100 L72 128 L110 68 L148 120 L175 90 L212 175 L212 190 Z"
+                      fill="none" stroke="#D4A830" stroke-width="1.6" stroke-linejoin="round"/>
+                <!-- Snow cap highlight -->
+                <path d="M100 84 L110 68 L120 82 Z" fill="rgba(212,168,48,.18)"/>
+
+                <!-- Finca house -->
+                <g transform="translate(150,100)">
+                  <rect x="0" y="14" width="26" height="18" fill="none" stroke="#D4A830" stroke-width="1.1"/>
+                  <polygon points="-2,14 13,2 28,14" fill="none" stroke="#D4A830" stroke-width="1.1" stroke-linejoin="round"/>
+                  <rect x="10" y="21" width="7" height="11" fill="none" stroke="#D4A830" stroke-width=".9"/>
+                  <rect x="2"  y="19" width="5" height="5"  fill="rgba(247,220,111,.2)" stroke="#D4A830" stroke-width=".8"/>
+                </g>
+
+                <!-- Ground fill -->
+                <path d="M0 190 Q55 165 110 178 Q165 160 220 175 L220 200 L0 200 Z"
+                      fill="rgba(212,168,48,.06)"/>
+              </svg>
+            </div>
+
+            <!-- TOP-RIGHT: Cerezas de café -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="cg1" cx="33%" cy="28%" r="65%">
+                    <stop offset="0%"   stop-color="#FF9AAA"/>
+                    <stop offset="28%"  stop-color="#CC1122"/>
+                    <stop offset="75%"  stop-color="#7A0011"/>
+                    <stop offset="100%" stop-color="#2E0008"/>
+                  </radialGradient>
+                  <radialGradient id="cg2" cx="33%" cy="28%" r="65%">
+                    <stop offset="0%"   stop-color="#FF9AAA"/>
+                    <stop offset="28%"  stop-color="#CC1122"/>
+                    <stop offset="75%"  stop-color="#7A0011"/>
+                    <stop offset="100%" stop-color="#2E0008"/>
+                  </radialGradient>
+                </defs>
+
+                <!-- Main branch -->
+                <path d="M108 5 Q105 28 100 52 Q96 70 92 85"
+                      stroke="#7A4820" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <!-- Sub-branches -->
+                <path d="M100 52 Q118 60 130 74 Q138 88 138 108"
+                      stroke="#7A4820" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M100 52 Q78 65 72 80 Q66 95 72 120"
+                      stroke="#7A4820" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+                <!-- Leaves -->
+                <ellipse cx="52"  cy="34" rx="28" ry="12" fill="#2D5C3A" stroke="#1A3F25" stroke-width="1"
+                         transform="rotate(-38 52 34)"/>
+                <line x1="38" y1="26" x2="66" y2="42" stroke="#1A3F25" stroke-width=".6" transform="rotate(-38 52 34)"/>
+
+                <ellipse cx="162" cy="28" rx="28" ry="12" fill="#2D5C3A" stroke="#1A3F25" stroke-width="1"
+                         transform="rotate(32 162 28)"/>
+                <line x1="148" y1="20" x2="176" y2="36" stroke="#1A3F25" stroke-width=".6" transform="rotate(32 162 28)"/>
+
+                <ellipse cx="185" cy="82" rx="24" ry="10" fill="#2D5C3A" stroke="#1A3F25" stroke-width="1"
+                         transform="rotate(18 185 82)"/>
+
+                <ellipse cx="28" cy="94" rx="22" ry="10" fill="#2D5C3A" stroke="#1A3F25" stroke-width="1"
+                         transform="rotate(-42 28 94)"/>
+
+                <ellipse cx="165" cy="148" rx="20" ry="9" fill="#2D5C3A" stroke="#1A3F25" stroke-width="1"
+                         transform="rotate(25 165 148)"/>
+
+                <!-- Cherry 1 (right, front) -->
+                <circle cx="138" cy="132" r="34" fill="url(#cg1)"/>
+                <ellipse cx="125" cy="117" rx="10" ry="7" fill="rgba(255,190,200,.32)"
+                         transform="rotate(-22 125 117)"/>
+                <circle cx="138" cy="99"  r="4" fill="#1A0005"/>
+                <path   d="M138 99 Q140 88 142 82" stroke="#5A2810" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+                <!-- Cherry 2 (left, slightly behind) -->
+                <circle cx="80" cy="142" r="30" fill="url(#cg2)"/>
+                <ellipse cx="69"  cy="128" rx="9" ry="6" fill="rgba(255,190,200,.28)"
+                         transform="rotate(-22 69 128)"/>
+                <circle cx="80"  cy="112" r="3.5" fill="#1A0005"/>
+              </svg>
+            </div>
+
+            <!-- BOTTOM-LEFT: Skyline ciudad -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Buildings - line art gold -->
+                <g stroke="#D4A830" fill="none">
+                  <!-- Bld 1 -->
+                  <rect x="8"   y="120" width="24" height="75" stroke-width="1.1"/>
+                  <rect x="12"  y="100" width="16" height="20" stroke-width="1"/>
+                  <rect x="14"  y="90"  width="12" height="10" stroke-width=".9"/>
+
+                  <!-- Bld 2 tall -->
+                  <rect x="40"  y="70"  width="24" height="130" stroke-width="1.1"/>
+                  <rect x="43"  y="50"  width="18" height="20"  stroke-width="1"/>
+                  <rect x="46"  y="34"  width="12" height="16"  stroke-width=".9"/>
+                  <line x1="52" y1="12" x2="52"  y2="34" stroke-width="1.1"/>
+                  <circle cx="52" cy="10" r="4" stroke-width="1"/>
+
+                  <!-- Bld 3 tallest -->
+                  <rect x="72"  y="52"  width="28" height="148" stroke-width="1.1"/>
+                  <rect x="75"  y="30"  width="22" height="22"  stroke-width="1"/>
+                  <rect x="78"  y="14"  width="16" height="16"  stroke-width=".9"/>
+
+                  <!-- Bld 4 -->
+                  <rect x="108" y="68"  width="22" height="132" stroke-width="1.1"/>
+                  <rect x="111" y="50"  width="16" height="18"  stroke-width="1"/>
+                  <rect x="113" y="36"  width="12" height="14"  stroke-width=".9"/>
+
+                  <!-- Bld 5 -->
+                  <rect x="138" y="85"  width="24" height="115" stroke-width="1.1"/>
+                  <rect x="141" y="65"  width="18" height="20"  stroke-width="1"/>
+
+                  <!-- Bld 6 -->
+                  <rect x="170" y="100" width="26" height="100" stroke-width="1.1"/>
+                  <rect x="173" y="84"  width="20" height="16"  stroke-width="1"/>
+
+                  <!-- Windows -->
+                  <rect x="45" y="80" width="5" height="6" fill="rgba(247,220,111,.18)" stroke-width=".7"/>
+                  <rect x="55" y="80" width="5" height="6" fill="rgba(247,220,111,.18)" stroke-width=".7"/>
+                  <rect x="77" y="60" width="6" height="7" fill="rgba(247,220,111,.18)" stroke-width=".7"/>
+                  <rect x="88" y="60" width="6" height="7" fill="rgba(247,220,111,.18)" stroke-width=".7"/>
+                  <rect x="112" y="78" width="5" height="6" fill="rgba(247,220,111,.18)" stroke-width=".7"/>
+                  <rect x="140" y="95" width="5" height="6" fill="rgba(247,220,111,.18)" stroke-width=".7"/>
+
+                  <!-- Ground line -->
+                  <line x1="0" y1="195" x2="220" y2="195" stroke="rgba(212,168,48,.3)" stroke-width=".8"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- BOTTOM-RIGHT: Perfiles femeninos -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Face 2 (behind, facing left) -->
+                <g stroke="#D4A830" stroke-width="1.3" fill="none" opacity=".65" stroke-linecap="round">
+                  <!-- Head/face profile -->
+                  <path d="M78 195
+                           Q76 168 76 148
+                           Q75 128 78 115
+                           Q82 100 86 90
+                           Q82 75 84 63
+                           Q88 48 98 40
+                           Q108 32 118 35
+                           Q128 38 130 50
+                           Q132 62 126 74
+                           Q120 86 116 98
+                           Q112 112 112 130
+                           Q112 150 115 175 L115 195"/>
+                  <!-- Nose hint -->
+                  <path d="M78 95 Q74 104 77 112 Q80 109 84 110"/>
+                  <!-- Lips -->
+                  <path d="M76 130 Q82 138 90 135 Q96 132 98 135 Q94 143 88 145 Q80 147 76 142 Z"/>
+                  <!-- Eye -->
+                  <path d="M86 70 Q94 64 102 67 Q98 73 90 72 Z" fill="rgba(212,168,48,.1)"/>
+                  <!-- Ear -->
+                  <path d="M124 68 Q132 72 130 80 Q129 88 122 88"/>
+                  <!-- Hair -->
+                  <path d="M86 62 Q80 42 90 26 Q100 12 114 10 Q128 8 134 20 Q140 32 134 48" stroke-width="1.4"/>
+                  <path d="M86 62 Q68 80 70 108 Q72 130 80 155" stroke-width="1"/>
+                  <!-- Hair strand -->
+                  <path d="M90 12 Q70 30 66 60" stroke-width=".9"/>
+                </g>
+
+                <!-- Face 1 (front, facing right) -->
+                <g stroke="#D4A830" stroke-width="1.5" fill="none" stroke-linecap="round">
+                  <!-- Face outline -->
+                  <path d="M132 195
+                           Q130 165 130 145
+                           Q128 122 130 108
+                           Q134 92 138 80
+                           Q134 65 136 53
+                           Q140 38 152 30
+                           Q164 22 175 26
+                           Q186 30 188 44
+                           Q190 58 184 70
+                           Q178 84 175 97
+                           Q172 112 172 130
+                           Q172 152 174 175 L174 195"/>
+                  <!-- Nose -->
+                  <path d="M130 85 Q126 95 130 104 Q133 100 138 102"/>
+                  <!-- Lips -->
+                  <path d="M128 120 Q136 129 145 126 Q152 122 154 126 Q150 135 144 137 Q136 139 130 134 Z"/>
+                  <!-- Eye -->
+                  <path d="M140 58 Q150 51 160 55 Q156 61 146 60 Z" fill="rgba(212,168,48,.12)"/>
+                  <!-- Ear -->
+                  <path d="M182 62 Q192 66 190 75 Q188 84 180 84"/>
+                  <!-- Hair - top -->
+                  <path d="M140 50 Q134 30 146 14 Q158 2 172 2 Q186 2 190 16 Q196 30 188 48" stroke-width="1.6"/>
+                  <!-- Hair - back flow -->
+                  <path d="M140 50 Q118 70 118 100 Q118 125 128 152" stroke-width="1.2"/>
+                  <!-- Hair strand -->
+                  <path d="M148 4 Q126 20 120 52" stroke-width="1"/>
+                  <path d="M160 2 Q142 18 138 46" stroke-width=".9"/>
+                </g>
+              </svg>
+            </div>
+
+          </div><!-- /panels -->
+
+          <!-- Grid cross lines -->
+          <div class="grid-cross"></div>
+
+          <!-- Glow dots at logo corners -->
+          <div class="grid-glow tl"></div>
+          <div class="grid-glow tr"></div>
+          <div class="grid-glow bl"></div>
+          <div class="grid-glow br"></div>
+
+          <!-- LUMA Logo -->
+          <div class="label__logo">
+            <span class="sparkle sp-tl">✦</span>
+            <span class="sparkle sp-tr">✦</span>
+            <span class="logo-line">LU</span>
+            <span class="logo-line">MA</span>
+            <span class="sparkle sp-bl">✦</span>
+            <span class="sparkle sp-br">✦</span>
+          </div>
+
+        </div><!-- /label__art -->
+
+        <!-- ── BODY ── -->
+        <div class="label__body">
+
+          <div class="label__main-title">CAFÉ ESPECIAL</div>
+
+          <div class="label__origen-row">
+            <div class="orig-rule"></div>
+            <div class="orig-deco">
+              <span class="rule"></span><span class="bean">∞</span><span class="rule"></span>
+            </div>
+            <span class="orig-text">Origen Tolima</span>
+            <div class="orig-deco">
+              <span class="rule"></span><span class="bean">∞</span><span class="rule"></span>
+            </div>
+            <div class="orig-rule"></div>
+          </div>
+
+          <div class="label__tagline">✦ Café que transforma historias ✦</div>
+
+          <!-- Info card -->
+          <div class="info-card">
+            <!-- Col 1 -->
+            <div class="icol">
+              <span class="ic-label">Variedad</span>
+              <span class="ic-value">Santa<br/>Clara</span>
+              <span class="ic-label" style="margin-top:.08cm">Perfil de taza</span>
+              <span class="ic-sub">Notas a Panela, Caramelo, Avellana, Clavo, acidez jugosa, delicado cuerpo almibarado.</span>
+            </div>
+            <!-- Col 2 -->
+            <div class="icol">
+              <span class="ic-label"><span class="ic-star">★</span>Finca</span>
+              <span class="ic-value">Buena<br/>Vista</span>
+              <span class="ic-sub">San Antonio · Tolima</span>
+              <span class="ic-label" style="margin-top:.08cm">Altitud del cultivo</span>
+              <span class="ic-value">1.720 mts.</span>
+            </div>
+            <!-- Col 3 -->
+            <div class="icol">
+              <div class="ic-feat"><span class="ic-icon">🌱</span><span>Cultivo Orgánico y Silvestre</span></div>
+              <div class="ic-feat"><span class="ic-icon">💧</span><span>Lavado y Secado Natural</span></div>
+              <div class="ic-feat"><span class="ic-icon">🌍</span><span>Sostenible con el Planeta</span></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Footer: Tostión | Badge | Molienda -->
+          <div class="label__footer">
+            <div class="foot-col">
+              <span class="foot-ico">🔥</span>
+              <span class="foot-lbl">Tostión</span>
+              <div class="dots">
+                <div class="dot dot-on"></div>
+                <div class="dot dot-on"></div>
+                <div class="dot dot-on"></div>
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+              </div>
+              <span class="foot-sub">media</span>
+            </div>
+
+            <div class="foot-badge">
+              <span class="badge-ico">🌿</span>
+              <span class="badge-txt">Con Propósito<br/>y Pasión</span>
+            </div>
+
+            <div class="foot-col">
+              <span class="foot-ico">⚙️</span>
+              <span class="foot-lbl">Molienda</span>
+              <div class="dots">
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+              </div>
+              <span class="foot-sub">grano entero</span>
+            </div>
+          </div>
+
+          <div class="label__weight">
+            <span class="wt-num">500</span>
+            <div class="wt-unit-wrap">
+              <span class="wt-unit">g</span>
+              <span class="wt-net">Peso neto</span>
+            </div>
+          </div>
+
+        </div><!-- /body -->
+      </div><!-- /label grano -->
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         LABEL 2 · CAFÉ MOLIDO · FONDO CREMA
+    ════════════════════════════════════════ -->
+    <div class="label-wrap">
+      <span class="label-cap">Café Molido — Versión crema</span>
+      <div class="label label--light" id="label-molido">
+        <div class="label__outer-border"></div>
+
+        <div class="label__art">
+          <div class="panels">
+
+            <!-- TOP-LEFT: Montañas (light) -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity=".75">
+                  <line x1="110" y1="68" x2="110" y2="18"  stroke="#A07820" stroke-width="1.4"/>
+                  <line x1="110" y1="68" x2="136" y2="26"  stroke="#A07820" stroke-width="1.1"/>
+                  <line x1="110" y1="68" x2="155" y2="45"  stroke="#A07820" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="162" y2="68"  stroke="#A07820" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="84"  y2="26"  stroke="#A07820" stroke-width="1.1"/>
+                  <line x1="110" y1="68" x2="65"  y2="45"  stroke="#A07820" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="58"  y2="68"  stroke="#A07820" stroke-width="1"/>
+                  <line x1="110" y1="68" x2="72"  y2="18"  stroke="#A07820" stroke-width=".8"/>
+                  <line x1="110" y1="68" x2="148" y2="18"  stroke="#A07820" stroke-width=".8"/>
+                </g>
+                <circle cx="110" cy="68" r="10" fill="rgba(160,120,32,.15)"/>
+                <circle cx="110" cy="68" r="5"  fill="#A07820"/>
+                <path d="M8 190 L45 100 L72 128 L110 68 L148 120 L175 90 L212 175 L212 190 Z"
+                      fill="none" stroke="#7B4F20" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M100 84 L110 68 L120 82 Z" fill="rgba(123,79,32,.15)"/>
+                <g transform="translate(150,100)">
+                  <rect x="0" y="14" width="26" height="18" fill="none" stroke="#7B4F20" stroke-width="1.1"/>
+                  <polygon points="-2,14 13,2 28,14" fill="none" stroke="#7B4F20" stroke-width="1.1" stroke-linejoin="round"/>
+                  <rect x="10" y="21" width="7"  height="11" fill="none" stroke="#7B4F20" stroke-width=".9"/>
+                  <rect x="2"  y="19" width="5"  height="5"  fill="rgba(160,120,32,.2)" stroke="#7B4F20" stroke-width=".8"/>
+                </g>
+                <path d="M0 190 Q55 165 110 178 Q165 160 220 175 L220 200 L0 200 Z"
+                      fill="rgba(123,79,32,.06)"/>
+              </svg>
+            </div>
+
+            <!-- TOP-RIGHT: Cerezas (light) -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="cl1" cx="33%" cy="28%" r="65%">
+                    <stop offset="0%"   stop-color="#FF9AAA"/>
+                    <stop offset="28%"  stop-color="#CC1122"/>
+                    <stop offset="75%"  stop-color="#7A0011"/>
+                    <stop offset="100%" stop-color="#2E0008"/>
+                  </radialGradient>
+                  <radialGradient id="cl2" cx="33%" cy="28%" r="65%">
+                    <stop offset="0%"   stop-color="#FF9AAA"/>
+                    <stop offset="28%"  stop-color="#CC1122"/>
+                    <stop offset="75%"  stop-color="#7A0011"/>
+                    <stop offset="100%" stop-color="#2E0008"/>
+                  </radialGradient>
+                </defs>
+                <path d="M108 5 Q105 28 100 52 Q96 70 92 85"
+                      stroke="#6A3818" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M100 52 Q118 60 130 74 Q138 88 138 108"
+                      stroke="#6A3818" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <path d="M100 52 Q78 65 72 80 Q66 95 72 120"
+                      stroke="#6A3818" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <ellipse cx="52"  cy="34" rx="28" ry="12" fill="#3A6845" stroke="#264A30" stroke-width="1"
+                         transform="rotate(-38 52 34)"/>
+                <line x1="38" y1="26" x2="66" y2="42" stroke="#264A30" stroke-width=".6" transform="rotate(-38 52 34)"/>
+                <ellipse cx="162" cy="28" rx="28" ry="12" fill="#3A6845" stroke="#264A30" stroke-width="1"
+                         transform="rotate(32 162 28)"/>
+                <ellipse cx="185" cy="82" rx="24" ry="10" fill="#3A6845" stroke="#264A30" stroke-width="1"
+                         transform="rotate(18 185 82)"/>
+                <ellipse cx="28"  cy="94" rx="22" ry="10" fill="#3A6845" stroke="#264A30" stroke-width="1"
+                         transform="rotate(-42 28 94)"/>
+                <ellipse cx="165" cy="148" rx="20" ry="9" fill="#3A6845" stroke="#264A30" stroke-width="1"
+                         transform="rotate(25 165 148)"/>
+                <circle cx="138" cy="132" r="34" fill="url(#cl1)"/>
+                <ellipse cx="125" cy="117" rx="10" ry="7" fill="rgba(255,190,200,.32)"
+                         transform="rotate(-22 125 117)"/>
+                <circle cx="138" cy="99"  r="4" fill="#1A0005"/>
+                <path   d="M138 99 Q140 88 142 82" stroke="#5A2810" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="80"  cy="142" r="30" fill="url(#cl2)"/>
+                <ellipse cx="69" cy="128" rx="9" ry="6" fill="rgba(255,190,200,.28)"
+                         transform="rotate(-22 69 128)"/>
+                <circle cx="80"  cy="112" r="3.5" fill="#1A0005"/>
+              </svg>
+            </div>
+
+            <!-- BOTTOM-LEFT: Skyline (light) -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#7B4F20" fill="none">
+                  <rect x="8"   y="120" width="24" height="75" stroke-width="1.1"/>
+                  <rect x="12"  y="100" width="16" height="20" stroke-width="1"/>
+                  <rect x="14"  y="90"  width="12" height="10" stroke-width=".9"/>
+                  <rect x="40"  y="70"  width="24" height="130" stroke-width="1.1"/>
+                  <rect x="43"  y="50"  width="18" height="20"  stroke-width="1"/>
+                  <rect x="46"  y="34"  width="12" height="16"  stroke-width=".9"/>
+                  <line x1="52" y1="12" x2="52"   y2="34" stroke-width="1.1"/>
+                  <circle cx="52" cy="10" r="4" stroke-width="1"/>
+                  <rect x="72"  y="52"  width="28" height="148" stroke-width="1.1"/>
+                  <rect x="75"  y="30"  width="22" height="22"  stroke-width="1"/>
+                  <rect x="78"  y="14"  width="16" height="16"  stroke-width=".9"/>
+                  <rect x="108" y="68"  width="22" height="132" stroke-width="1.1"/>
+                  <rect x="111" y="50"  width="16" height="18"  stroke-width="1"/>
+                  <rect x="113" y="36"  width="12" height="14"  stroke-width=".9"/>
+                  <rect x="138" y="85"  width="24" height="115" stroke-width="1.1"/>
+                  <rect x="141" y="65"  width="18" height="20"  stroke-width="1"/>
+                  <rect x="170" y="100" width="26" height="100" stroke-width="1.1"/>
+                  <rect x="173" y="84"  width="20" height="16"  stroke-width="1"/>
+                  <rect x="45"  y="80"  width="5" height="6" fill="rgba(123,79,32,.15)" stroke-width=".7"/>
+                  <rect x="55"  y="80"  width="5" height="6" fill="rgba(123,79,32,.15)" stroke-width=".7"/>
+                  <rect x="77"  y="60"  width="6" height="7" fill="rgba(123,79,32,.15)" stroke-width=".7"/>
+                  <rect x="88"  y="60"  width="6" height="7" fill="rgba(123,79,32,.15)" stroke-width=".7"/>
+                  <line x1="0" y1="195" x2="220" y2="195" stroke="rgba(123,79,32,.3)" stroke-width=".8"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- BOTTOM-RIGHT: Perfiles femeninos (light) -->
+            <div class="panel">
+              <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Face 2 (behind) -->
+                <g stroke="#7B4F20" stroke-width="1.3" fill="none" opacity=".6" stroke-linecap="round">
+                  <path d="M78 195 Q76 168 76 148 Q75 128 78 115 Q82 100 86 90
+                           Q82 75 84 63 Q88 48 98 40 Q108 32 118 35
+                           Q128 38 130 50 Q132 62 126 74 Q120 86 116 98
+                           Q112 112 112 130 Q112 150 115 175 L115 195"/>
+                  <path d="M78 95 Q74 104 77 112 Q80 109 84 110"/>
+                  <path d="M76 130 Q82 138 90 135 Q96 132 98 135 Q94 143 88 145 Q80 147 76 142 Z"/>
+                  <path d="M86 70 Q94 64 102 67 Q98 73 90 72 Z" fill="rgba(123,79,32,.1)"/>
+                  <path d="M86 62 Q80 42 90 26 Q100 12 114 10 Q128 8 134 20 Q140 32 134 48"/>
+                  <path d="M86 62 Q68 80 70 108 Q72 130 80 155"/>
+                </g>
+                <!-- Face 1 (front) -->
+                <g stroke="#7B4F20" stroke-width="1.5" fill="none" stroke-linecap="round">
+                  <path d="M132 195 Q130 165 130 145 Q128 122 130 108 Q134 92 138 80
+                           Q134 65 136 53 Q140 38 152 30 Q164 22 175 26
+                           Q186 30 188 44 Q190 58 184 70 Q178 84 175 97
+                           Q172 112 172 130 Q172 152 174 175 L174 195"/>
+                  <path d="M130 85 Q126 95 130 104 Q133 100 138 102"/>
+                  <path d="M128 120 Q136 129 145 126 Q152 122 154 126 Q150 135 144 137 Q136 139 130 134 Z"/>
+                  <path d="M140 58 Q150 51 160 55 Q156 61 146 60 Z" fill="rgba(123,79,32,.1)"/>
+                  <path d="M140 50 Q134 30 146 14 Q158 2 172 2 Q186 2 190 16 Q196 30 188 48"/>
+                  <path d="M140 50 Q118 70 118 100 Q118 125 128 152"/>
+                  <path d="M148 4 Q126 20 120 52"/>
+                </g>
+              </svg>
+            </div>
+
+          </div><!-- /panels -->
+
+          <div class="grid-cross"></div>
+          <div class="grid-glow tl"></div>
+          <div class="grid-glow tr"></div>
+          <div class="grid-glow bl"></div>
+          <div class="grid-glow br"></div>
+
+          <div class="label__logo">
+            <span class="sparkle sp-tl">✦</span>
+            <span class="sparkle sp-tr">✦</span>
+            <span class="logo-line">LU</span>
+            <span class="logo-line">MA</span>
+            <span class="sparkle sp-bl">✦</span>
+            <span class="sparkle sp-br">✦</span>
+          </div>
+
+        </div><!-- /art -->
+
+        <!-- ── BODY ── -->
+        <div class="label__body">
+
+          <div class="label__main-title">CAFÉ ESPECIAL</div>
+
+          <div class="label__origen-row">
+            <div class="orig-rule"></div>
+            <div class="orig-deco">
+              <span class="rule"></span><span class="bean">∞</span><span class="rule"></span>
+            </div>
+            <span class="orig-text">Origen Tolima</span>
+            <div class="orig-deco">
+              <span class="rule"></span><span class="bean">∞</span><span class="rule"></span>
+            </div>
+            <div class="orig-rule"></div>
+          </div>
+
+          <div class="label__tagline">✦ Café que transforma historias ✦</div>
+
+          <div class="info-card">
+            <div class="icol">
+              <span class="ic-label">Variedad</span>
+              <span class="ic-value">Santa<br/>Clara</span>
+              <span class="ic-label" style="margin-top:.08cm">Perfil de taza</span>
+              <span class="ic-sub">Notas a Panela, Caramelo, Avellana, Clavo, acidez jugosa, delicado cuerpo almibarado.</span>
+            </div>
+            <div class="icol">
+              <span class="ic-label"><span class="ic-star">★</span>Finca</span>
+              <span class="ic-value">Buena<br/>Vista</span>
+              <span class="ic-sub">San Antonio · Tolima</span>
+              <span class="ic-label" style="margin-top:.08cm">Altitud del cultivo</span>
+              <span class="ic-value">1.720 mts.</span>
+            </div>
+            <div class="icol">
+              <div class="ic-feat"><span class="ic-icon">🌱</span><span>Cultivo Orgánico y Silvestre</span></div>
+              <div class="ic-feat"><span class="ic-icon">💧</span><span>Lavado y Secado Natural</span></div>
+              <div class="ic-feat"><span class="ic-icon">🌍</span><span>Sostenible con el Planeta</span></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="label__footer">
+            <div class="foot-col">
+              <span class="foot-ico">🔥</span>
+              <span class="foot-lbl">Tostión</span>
+              <div class="dots">
+                <div class="dot dot-on"></div>
+                <div class="dot dot-on"></div>
+                <div class="dot dot-on"></div>
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+              </div>
+              <span class="foot-sub">media</span>
+            </div>
+
+            <div class="foot-badge">
+              <span class="badge-ico">🌿</span>
+              <span class="badge-txt">Con Propósito<br/>y Pasión</span>
+            </div>
+
+            <div class="foot-col">
+              <span class="foot-ico">⚙️</span>
+              <span class="foot-lbl">Molienda</span>
+              <div class="dots">
+                <div class="dot dot-on"></div>
+                <div class="dot dot-on"></div>
+                <div class="dot dot-on"></div>
+                <div class="dot dot-off"></div>
+                <div class="dot dot-off"></div>
+              </div>
+              <span class="foot-sub">media</span>
+            </div>
+          </div>
+
+          <div class="label__weight">
+            <span class="wt-num">500</span>
+            <div class="wt-unit-wrap">
+              <span class="wt-unit">g</span>
+              <span class="wt-net">Peso neto</span>
+            </div>
+          </div>
+
+        </div><!-- /body -->
+      </div><!-- /label molido -->
+    </div>
+
+  </div><!-- /preview-row -->
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="ctrl-btn ctrl-btn--dark"  onclick="printOne('label-grano')">🖨 Imprimir · En Grano</button>
+    <button class="ctrl-btn ctrl-btn--light" onclick="printOne('label-molido')">🖨 Imprimir · Molido</button>
+    <button class="ctrl-btn ctrl-btn--both"  onclick="window.print()">🖨 Imprimir ambas</button>
+  </div>
+
+  <script>
+    function printOne(id) {
+      // Hide the other label, print, restore
+      const all = document.querySelectorAll('.label-wrap');
+      const target = document.getElementById(id);
+      all.forEach(w => {
+        const lbl = w.querySelector('.label');
+        if (lbl && lbl.id !== id) w.style.display = 'none';
+      });
+      window.print();
+      all.forEach(w => w.style.display = '');
+    }
+  </script>
+
+</body>
+</html>

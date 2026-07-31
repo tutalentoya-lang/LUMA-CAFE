@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMA · Café de Origen</title>
+  <meta name="description" content="LUMA Café de Origen — Granos seleccionados, tostados con amor. Descubre el sabor auténtico del café de origen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Tangerine:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#inicio" class="nav__logo">
+      <span class="logo-grid">
+        <span class="logo-grid__cell">L</span>
+        <span class="logo-grid__cell">U</span>
+        <span class="logo-grid__cell">M</span>
+        <span class="logo-grid__cell">A</span>
+      </span>
+      <span class="logo-wordmark">Café de Origen</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="https://instagram.com/luma_cafedeorigen" target="_blank" rel="noopener" class="nav__ig" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+      <li><a href="#contacto" class="nav__cta">Pedir ahora</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__ornament">
+        <span></span><i class="fa-solid fa-seedling"></i><span></span>
+      </div>
+      <p class="hero__label">Café Especial · Cundinamarca y Tolima</p>
+      <h1 class="hero__title">Café que transforma<br /><em>historias</em></h1>
+      <p class="hero__subtitle">Dos orígenes, un solo propósito. Variedad Castillo de La Mesa, Cundinamarca y Variedad Santa Clara de San Antonio, Tolima. Cultivo orgánico, comercio directo.</p>
+      <div class="hero__actions">
+        <a href="#productos" class="btn btn--primary">Ver productos</a>
+        <a href="#nosotros" class="btn btn--ghost">Nuestra historia</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Descubre</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <div class="band">
+    <div class="band__item"><i class="fa-solid fa-map-pin"></i> Tolima · 1.720 msnm</div>
+    <div class="band__item"><i class="fa-solid fa-leaf"></i> Cultivo Orgánico y Silvestre</div>
+    <div class="band__item"><i class="fa-solid fa-droplet"></i> Lavado y Secado Natural</div>
+    <div class="band__item"><i class="fa-solid fa-handshake"></i> Comercio Directo</div>
+  </div>
+
+  <!-- PRODUCTOS -->
+  <section class="section" id="productos">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Nuestro catálogo</p>
+        <h2 class="section__title">Elige tu café perfecto</h2>
+        <p class="section__sub">Variedad Castillo (Cundinamarca) y Variedad Santa Clara (Tolima) · Proceso Lavado · Tostión Media · Comercio Directo.</p>
+        <p class="section__everyday">Un café especial para todos los días</p>
+      </div>
+      <div class="product__specs-banner">
+        <span><i class="fa-solid fa-droplet"></i> Proceso Lavado</span>
+        <span><i class="fa-solid fa-fire-flame-curved"></i> Tostión Media</span>
+        <span><i class="fa-solid fa-mortar-pestle"></i> Molienda Media</span>
+      </div>
+
+      <!-- VARIEDAD CASTILLO -->
+      <div class="variety-group">
+        <div class="variety-header">
+          <span class="variety-tag"><i class="fa-solid fa-seedling"></i> Variedad Castillo · Finca la Rinconada, La Mesa — Cundinamarca</span>
+        </div>
+        <div class="products__grid products__grid--two">
+
+          <article class="card">
+            <div class="card__img card__img--grano">
+              <a class="card__order-cta" href="https://wa.me/573212875771?text=Hola%2C%20quiero%20pedir%20Caf%C3%A9%20LUMA%20Castillo%20en%20Grano%20%F0%9F%99%8C" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hacer pedido · 321 287 5771</a>
+            </div>
+            <div class="card__body">
+              <h3 class="card__name"><i class="fa-solid fa-circle-dot"></i> Café en Grano</h3>
+              <p class="card__desc">Notas de <strong>cacao, nueces, macadamias, afrutado, toronja y panela.</strong> Grano entero para moler al momento y conservar toda su frescura.</p>
+              <div class="card__sizes">
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 340 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Castillo%20en%20Grano%20-%20340%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 500 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Castillo%20en%20Grano%20-%20500%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 5 kg</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Castillo%20en%20Grano%20-%205%20kg%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img card__img--molido">
+              <a class="card__order-cta" href="https://wa.me/573212875771?text=Hola%2C%20quiero%20pedir%20Caf%C3%A9%20LUMA%20Castillo%20Molido%20%F0%9F%99%8C" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hacer pedido · 321 287 5771</a>
+            </div>
+            <div class="card__body">
+              <h3 class="card__name"><i class="fa-solid fa-mug-hot"></i> Café Molido</h3>
+              <p class="card__desc">Notas de <strong>cacao, nueces, macadamias, afrutado, toronja y panela.</strong> Molienda media ideal para colar, prensa francesa o cafetera.</p>
+              <div class="card__sizes">
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 340 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Castillo%20Molido%20-%20340%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 500 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Castillo%20Molido%20-%20500%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 5 kg</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Castillo%20Molido%20-%205%20kg%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- VARIEDAD SANTA CLARA -->
+      <div class="variety-group">
+        <div class="variety-header">
+          <span class="variety-tag variety-tag--alt"><i class="fa-solid fa-seedling"></i> Variedad Santa Clara · Finca Buena Vista, San Antonio — Tolima · Nueva</span>
+        </div>
+        <div class="products__grid products__grid--two">
+
+          <article class="card">
+            <div class="card__img card__img--sc-grano">
+              <a class="card__order-cta" href="https://wa.me/573212875771?text=Hola%2C%20quiero%20pedir%20Caf%C3%A9%20LUMA%20Santa%20Clara%20en%20Grano%20%F0%9F%99%8C" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hacer pedido · 321 287 5771</a>
+            </div>
+            <div class="card__body">
+              <h3 class="card__name"><i class="fa-solid fa-circle-dot"></i> Café en Grano</h3>
+              <p class="card__desc">Notas a <strong>panela, caramelo, avellana y cítrico,</strong> con acidez jugosa y delicado cuerpo almibarado. Grano entero para moler al momento.</p>
+              <div class="card__sizes">
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 340 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Santa%20Clara%20en%20Grano%20-%20340%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 500 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Santa%20Clara%20en%20Grano%20-%20500%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 5 kg</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Santa%20Clara%20en%20Grano%20-%205%20kg%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__img card__img--sc-molido">
+              <a class="card__order-cta" href="https://wa.me/573212875771?text=Hola%2C%20quiero%20pedir%20Caf%C3%A9%20LUMA%20Santa%20Clara%20Molido%20%F0%9F%99%8C" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hacer pedido · 321 287 5771</a>
+            </div>
+            <div class="card__body">
+              <h3 class="card__name"><i class="fa-solid fa-mug-hot"></i> Café Molido</h3>
+              <p class="card__desc">Notas a <strong>panela, caramelo, avellana y cítrico,</strong> con acidez jugosa y delicado cuerpo almibarado. Molienda media, perfecta para el día a día.</p>
+              <div class="card__sizes">
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 340 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Santa%20Clara%20Molido%20-%20340%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 500 gr</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Santa%20Clara%20Molido%20-%20500%20gr%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+                <div class="size-row">
+                  <span class="size-label"><i class="fa-solid fa-weight-hanging"></i> 5 kg</span>
+                  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20Caf%C3%A9%20LUMA%20Santa%20Clara%20Molido%20-%205%20kg%20%F0%9F%99%8C" target="_blank" rel="noopener" class="btn btn--sm">Consultar precio</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="about" id="nosotros">
+    <div class="container about__grid">
+      <div class="about__visual">
+        <div class="about__img-wrap">
+          <div class="about__img"></div>
+          <div class="about__badge-stat">
+            <span class="about__num">1.720</span>
+            <span class="about__txt">msnm<br/>de altura</span>
+          </div>
+        </div>
+      </div>
+      <div class="about__text">
+        <p class="section__label">Nuestra historia</p>
+        <h2 class="section__title">Del encuentro entre el campo y la ciudad</h2>
+        <p>LUMA nace del encuentro entre el campo y la ciudad, entre dos corazones que se eligieron para construir un propósito de vida. De esa unión nacen <strong>Luciano y Martina</strong> — nuestros dos granos de café que simbolizan amor, herencia y futuro.</p>
+        <p>Nuestro café nace en la <strong>Finca la Rinconada</strong>, Vereda Doima Alto, La Mesa — Cundinamarca, a 1.300 msnm, donde cultivamos la <strong>Variedad Castillo</strong> de manera orgánica y silvestre, en armonía con el bosque y sin insumos artificiales.</p>
+        <p>Con el crecimiento de LUMA llegó una nueva historia: la <strong>Variedad Santa Clara</strong> de la <strong>Finca Buena Vista</strong>, San Antonio — Tolima, a 1.720 msnm, una adquisición reciente que amplía nuestro portafolio con notas únicas de caramelo, avellana y cítrico.</p>
+        <p>En ambas fincas, cada bolsa es trazable desde la mata hasta tu taza: proceso lavado, secado natural al sol y tueste artesanal en pequeños lotes.</p>
+        <ul class="about__values">
+          <li><i class="fa-solid fa-star"></i> Variedad Castillo · Finca la Rinconada · La Mesa, Cundinamarca · 1.300 msnm</li>
+          <li><i class="fa-solid fa-star"></i> Variedad Santa Clara · Finca Buena Vista · San Antonio, Tolima · 1.720 msnm</li>
+          <li><i class="fa-solid fa-leaf"></i> Cultivo Orgánico y Silvestre · Proceso Lavado y Secado Natural</li>
+          <li><i class="fa-solid fa-fire-flame-curved"></i> Tueste artesanal en pequeños lotes · 100% Colombiano</li>
+          <li><i class="fa-solid fa-handshake"></i> Comercio directo · Agricultura sostenible · Impacto social</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Lo que dicen</p>
+        <h2 class="section__title">Nuestros clientes hablan</h2>
+      </div>
+      <div class="testimonials__grid">
+        <blockquote class="testi">
+          <p>"El café en grano de LUMA es increíble. Lo muelo en casa y el aroma llena toda la cocina. ¡El mejor que he probado!"</p>
+          <footer><strong>Camila R.</strong> · Bogotá</footer>
+        </blockquote>
+        <blockquote class="testi">
+          <p>"Pedí el molido de 500 gr y llegó rapidísimo. La tostión media es perfecta para mi prensa francesa. Lo pido cada mes."</p>
+          <footer><strong>Andrés M.</strong> · Medellín</footer>
+        </blockquote>
+        <blockquote class="testi">
+          <p>"El paquete de 5 kg es el mejor negocio. Variedad Castillo de calidad real, se nota que cuidan cada detalle."</p>
+          <footer><strong>Laura P.</strong> · Cali</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__label">Nuestra finca</p>
+        <h2 class="section__title">Desde la mata hasta tu taza</h2>
+        <p class="section__sub">Finca la Rinconada · Vereda Doima Alto · La Mesa, Cundinamarca · 1.300 msnm</p>
+      </div>
+      <div class="gallery__grid">
+        <div class="gallery__item gallery__item--tall" style="background-image:url('Imagenes/galeria-nino-cereza.jpeg')">
+          <div class="gallery__caption">Una historia familiar</div>
+        </div>
+        <div class="gallery__item" style="background-image:url('Imagenes/galeria-nino.jpeg')">
+          <div class="gallery__caption">Finca La Rinconada · 1.300 msnm</div>
+        </div>
+        <div class="gallery__item" style="background-image:url('Imagenes/galeria-frutos.jpeg')">
+          <div class="gallery__caption">Semillero de origen</div>
+        </div>
+        <div class="gallery__item gallery__item--wide" style="background-image:url('Imagenes/galeria-secado.jpeg')">
+          <div class="gallery__caption">Secado natural al sol</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <div class="container contact__grid">
+      <div class="contact__info">
+        <p class="section__label">¿Listo para pedir?</p>
+        <h2 class="section__title" style="color:#fff;">Escríbenos<br/>por WhatsApp</h2>
+        <p style="color:rgba(255,255,255,0.75);">Atendemos pedidos, consultas y envíos personalizados. Respuesta rápida garantizada.</p>
+        <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20pedir%20caf%C3%A9%20LUMA%20%F0%9F%98%8A" target="_blank" rel="noopener" class="btn btn--whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Abrir WhatsApp
+        </a>
+        <div class="contact__social">
+          <a href="https://instagram.com/luma_cafedeorigen" target="_blank" rel="noopener" class="contact__ig-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span>@luma_cafedeorigen</span>
+          </a>
+        </div>
+      </div>
+      <form class="contact__form" id="contactForm">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form__group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="form__group">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+        </div>
+        <div class="form__group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Qué café te interesa?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
+        <p class="form__notice" id="formNotice"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <span class="logo-grid logo-grid--lg">
+          <span class="logo-grid__cell">L</span>
+          <span class="logo-grid__cell">U</span>
+          <span class="logo-grid__cell">M</span>
+          <span class="logo-grid__cell">A</span>
+        </span>
+        <span class="logo-wordmark">Café de Origen · Colombia</span>
+      </div>
+      <a href="https://instagram.com/luma_cafedeorigen" target="_blank" rel="noopener" class="footer__ig">
+        <i class="fa-brands fa-instagram"></i> @luma_cafedeorigen
+      </a>
+      <p class="footer__copy">&copy; 2026 LUMA Café de Origen. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://instagram.com/luma_cafedeorigen" target="_blank" rel="noopener" class="ig-float" aria-label="Instagram @luma_cafedeorigen">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://wa.me/573212875771?text=Hola%2C%20quiero%20pedir%20caf%C3%A9%20LUMA%20%F0%9F%98%8A" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Hacer pedido por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="whatsapp-float__label">Pedir ahora</span>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
